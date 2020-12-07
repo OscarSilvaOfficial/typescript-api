@@ -1,7 +1,7 @@
 import { api } from './Axios'
 
-export async function covidNews() {
-    return await api.get('/summary')
+function covidSummary() {
+    return api.get('/summary')
         .then((res) => {
             return res.data
         })
@@ -9,3 +9,5 @@ export async function covidNews() {
             return error
         })
 }
+
+export default covidSummary 
