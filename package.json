@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "debbug": "ts-node-dev --inspect=0.0.0.0:3333 --exit-child --respawn src/index.ts",
-    "dev": "ts-node-dev src/index.ts"
+    "dev": "DEBUG=* ts-node-dev src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
     "axios": "^0.21.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongodb": "^3.6.3"
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.8"
   }
 }

@@ -1,11 +1,15 @@
-import ApiService from '../services/ApiService'
+import { getBitcoinToday, getBitcoinHistory } from '../services/EndpointService'
 import { Request, Response } from 'express'
-import { json } from 'body-parser'
 
 
-export default {
-    getData(req: Request, res: Response) {
-        const response = ApiService()
-        return res.json(response)    
-    },
+const bitcoinTody = async(req: Request, res: Response) => {
+    const response = await getBitcoinToday() 
+    return res.json(response)    
 }
+
+const bitcoinHistory = async(req: Request, res: Response) => {
+    const response = await getBitcoinHistory() 
+    return res.json(response)    
+}
+
+export { bitcoinTody, bitcoinHistory }
