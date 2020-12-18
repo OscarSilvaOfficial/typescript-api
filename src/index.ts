@@ -1,13 +1,14 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import routerApi from './routers/default';
+import Date from './utils/getDate'
 const bodyParser = require('body-parser');
 const app = express();
 const log = require('debug')('api:main');
 
-
+const PORT : string|number = process.env.PORT || 5000;
 app.use((request:Request, response:Response, next) => {
-    console.log(request.query, `Request feita em: ${new Date().toISOString}`)
+    log(request.query, `Request at: ${Date()}`)
     next()
 })
 
@@ -19,4 +20,4 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(routerApi)
 
-app.listen(5000,()=>{console.log('Servidor rodando: http://127.0.0.1:5000')})
+app.listen(PORT,()=>{console.log('Servidor rodando: http://127.0.0.1:5000')})

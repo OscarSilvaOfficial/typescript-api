@@ -1,4 +1,5 @@
 import { BitcoinApi } from './ApiService'
+import Date from '../utils/getDate'
 const log = require('debug')('api:endpoints');
 
 
@@ -27,7 +28,7 @@ function getBitcoinToday() {
 }
 
 function getBitcoinHistory() {
-  const endDate = new Date().toISOString().split('T').splice(0, 1).toString()
+  const endDate = Date()
   const response = BitcoinApi.get(`/v1/bpi/historical/close.json?start=2010-07-17&end=${endDate}`)
     .then((response) => {
       return response.data.bpi
