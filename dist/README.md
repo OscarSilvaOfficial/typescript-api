@@ -1,1 +1,0 @@
-# Nessa pasta fica os arquivos transpilados pelo TSC
